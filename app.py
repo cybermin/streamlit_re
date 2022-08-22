@@ -8,11 +8,6 @@ with st.sidebar:
      "학교 구분",
      ('사립', '국공립'))
 
-    if gubun == '사립':
-        st.write(gubun)
-    else:
-        st.write(gubun)
-
 
 data = pd.read_csv('기숙사수용현황분석.csv')
 
@@ -27,9 +22,8 @@ col1.metric("대학수", num1, "")
 col2.metric("국공립학교", num2, f'{round(num2/num1 * 100,2)}%')
 col3.metric("사립학교", num3, f'{round(num3/num1 * 100,2)}%')
 
-
+st.write(f'{gubun} 기숙사현황')
 
 #st.dataframe(data)
 
 
-#st.write('기숙사현황')
