@@ -24,6 +24,12 @@ col3.metric("사립학교", num3, f'{round(num3/num1 * 100,2)}%')
 
 st.write(f'{gubun} 기숙사현황')
 
-#st.dataframe(data)
+if gubun == '사립' :
+    dfg = df[df['설립구분'] == '사립']
+else :
+    dfg = df[df['설립구분'] != '사립']  
+
+dfg = dfg.groupby(['지역']).mean()[['기숙사수용률', '입사경쟁률']]
+st.dataframe(dfg)
 
 
